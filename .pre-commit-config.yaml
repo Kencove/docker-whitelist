@@ -11,7 +11,7 @@ repos:
         language: fail
         files: "\\.rej$"
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v2.2.1
+    rev: v4.0.0-alpha.7
     hooks:
       - id: prettier
         additional_dependencies:
@@ -20,7 +20,7 @@ repos:
         args:
           - --plugin=@prettier/plugin-xml
   - repo: https://github.com/myint/autoflake
-    rev: v1.4
+    rev: v2.2.1
     hooks:
       - id: autoflake
         args:
@@ -31,21 +31,21 @@ repos:
           - --remove-duplicate-keys
           - --remove-unused-variables
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.7.4
+    rev: v3.15.0
     hooks:
       - id: pyupgrade
   - repo: https://github.com/psf/black
-    rev: 20.8b1
+    rev: 23.12.0
     hooks:
       - id: black
   - repo: https://github.com/timothycrosley/isort
-    rev: 5.7.0
+    rev: 5.13.2
     hooks:
       - id: isort
         args:
           - --settings=.
   - repo: https://github.com/PyCQA/flake8
-    rev: 3.8.4
+    rev: 6.1.0
     hooks:
       - &flake8
         id: flake8
@@ -60,7 +60,7 @@ repos:
           - --extend-ignore=F401
         files: /__init__\.py$
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.4.0
+    rev: v4.5.0
     hooks:
       - id: check-added-large-files
         args:
