@@ -58,6 +58,14 @@ jobs:
       - run: poetry install
       # Run tests
       - run: poetry run pytest --prebuild
+      - uses: uraimo/run-on-arch-action@v2
+        name: tests on armv7
+        id: runcmd
+        with:
+          arch: armv7
+          distro: ubuntu20.04
+          run: poetry run pytest --prebuild
+
   build-push:
     runs-on: ubuntu-20.04
     services:
