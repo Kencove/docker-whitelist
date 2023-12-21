@@ -1,4 +1,5 @@
 import logging
+import time
 from contextlib import contextmanager
 from pathlib import Path
 
@@ -48,7 +49,7 @@ def container_factory(image):
     """A context manager that starts the docker container."""
 
     @contextmanager
-    def _container(target):
+    def _container(target, PRE_RESOLVE=False):
         container_id = None
         _logger.info(f"Starting {image} container")
         try:
@@ -60,6 +61,7 @@ def container_factory(image):
                 "TARGET=%s" % target,
                 image,
             ).strip()
+            time.sleep(5)
             with local.env():
                 yield container_id
         finally:
